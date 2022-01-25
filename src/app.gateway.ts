@@ -1,10 +1,14 @@
 import { Logger } from '@nestjs/common';
-import { SubscribeMessage, WebSocketGateway, OnGatewayInit, WsResponse, WebSocketServer, OnGatewayConnection, OnGatewayDisconnect } from '@nestjs/websockets';
+import { WebSocketGateway, OnGatewayInit, WebSocketServer, OnGatewayConnection, OnGatewayDisconnect } from '@nestjs/websockets';
 import { Server, Socket } from 'socket.io';
+import { TwitterService } from './twitter/twitter.service';
 
 @WebSocketGateway()
 export class AppGateway implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {
 
+  constructor(private twitterService: TwitterService) {
+
+  }
 
   @WebSocketServer() wss: Server;
 
@@ -12,6 +16,7 @@ export class AppGateway implements OnGatewayInit, OnGatewayConnection, OnGateway
 
   afterInit(server: Server) {
     this.logger.log("App Gateway is Initialized successfully!");
+    this.twitterService.start(this);
   }
 
   handleDisconnect(client: Socket) {
