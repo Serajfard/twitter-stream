@@ -9,7 +9,9 @@ export class AppGateway implements OnGatewayInit, OnGatewayConnection, OnGateway
   constructor(private twitterService: TwitterService) {
 
   }
-
+  /**
+   * Socket server 
+   */
   @WebSocketServer() wss: Server;
 
   private logger: Logger = new Logger("AppGateway(socket)");
@@ -27,6 +29,10 @@ export class AppGateway implements OnGatewayInit, OnGatewayConnection, OnGateway
     this.logger.log(`Client connected: ${client.id}`);
   }
 
+  /**
+   * Send message to all clients (socket clients) in the channel of "tweets" (event)
+   * @param message 
+   */
   sendMessageToAllClients(message: string): void {
     this.wss.emit("tweets", message);
   }
