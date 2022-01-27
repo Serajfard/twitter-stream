@@ -5,13 +5,20 @@ Hi.
 
 This is sample code for implementing Rest APIs, Stream management and using AppGateway (Socket) in NestJS.
 
+I need to highlight that a simplified version of Streaming and Log Aggregation are implemented as demo. In log aggregation pattern we need to monitor incoming logs to find some specific events and invoke proper action for instance sending alarm to admins. Also we can use stream to manage incoming logs however in this sample API endpoint is used to manage incoming logs.
+
+For streaming twitter tweets, simplified stream pattern and observable are used. A pipe function is simulated to send incoming message to clients via socket. 
+I have tried to keep the application simple and far from over-engineering.
+
+Some tests have been implemented for testing log APIs. 
+
 ## Used Technologies and Patterns
 
 - NestJS - Main structure of the application.
 - SQLite - Database for log aggregation and test.
 - TypeOrm + Repository pattern- The Orm to work with DB.
 - AppGateway (Socket) - The solution for real-time streaming to clients.
-- Observable pattern - The pattern to manage incoming message from stream.
+- Observable pattern (RxJS) - The pattern to manage incoming message from stream.
 - pipe function - Send tweet from readable stream to writable stream.
 - Swagger - To generate open API document.
 
