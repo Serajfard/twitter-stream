@@ -38,6 +38,10 @@ Includes two APIs for creating log and getting logs.
 
 AppGateway is used to manage socket connection for real time streaming.
 
+## Database
+
+Sqlite is used as Database. There are two database files in data folder for development and testing. We can manage to use correct DB automatically based on environment and NestJS config file but in this sample code a manual config file is used.
+
 ## Installation
 
 ```bash
@@ -58,6 +62,8 @@ $ npm run start:prod
 ```
 
 ## Test
+
+Seperate DB is used for testing purpose and it is managed properly.
 
 ```bash
 # unit tests
@@ -82,7 +88,7 @@ Swagger is used to generate API document automatically. Follow below steps to se
 $ npm run start
 ```
 
-2. Open this addres `http://localhost:3001/swagger/` in browser
+2. Open following address `http://localhost:3001/swagger/` in browser
 
 <img src="/assets/swagger.png" width="500">
 
