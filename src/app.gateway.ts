@@ -18,7 +18,8 @@ export class AppGateway implements OnGatewayInit, OnGatewayConnection, OnGateway
 
   afterInit(server: Server) {
     this.logger.log("App Gateway is Initialized successfully!");
-    this.twitterService.start(this);
+
+    this.twitterService.pipe(this);
   }
 
   handleDisconnect(client: Socket) {
@@ -31,9 +32,12 @@ export class AppGateway implements OnGatewayInit, OnGatewayConnection, OnGateway
 
   /**
    * Send message to all clients (socket clients) in the channel of "tweets" (event)
+   * 
+   * Simulating write method of writable stream
+   * 
    * @param message 
    */
-  sendMessageToAllClients(message: string): void {
+  write(message: string): void {
     this.wss.emit("tweets", message);
   }
 
