@@ -1,5 +1,9 @@
-  <p align="center">Streaming Twitter Tweets & Log Aggregation Endpoint
-  </p>
+  <h1 align="center">Streaming Twitter Tweets & Log Aggregation Endpoint
+  </h1>
+  
+Hi.
+
+This is sample code for implementing Rest APIs, Stream management and using AppGateway (Socket) in NestJS.
 
 ## Used Technologies and Patterns
 
@@ -59,7 +63,11 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+![diagram](/assets/test.png)
+
 ## API Document
+
+Swagger is used to generate API document automatically. Follow below steps to see the document.
 
 1. Run the application
 
@@ -68,6 +76,8 @@ $ npm run start
 ```
 
 2. Open this addres `http://localhost:3001/swagger/` in browser
+
+![diagram](/assets/swagger.png)
 
 ## Sample Client
 
