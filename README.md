@@ -63,7 +63,7 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-![diagram](/assets/test.png)
+<img src="/assets/test.png" width="500">
 
 ## API Document
 
@@ -77,7 +77,7 @@ $ npm run start
 
 2. Open this addres `http://localhost:3001/swagger/` in browser
 
-![diagram](/assets/swagger.png)
+<img src="/assets/swagger.png" width="500">
 
 ## Sample Client
 
